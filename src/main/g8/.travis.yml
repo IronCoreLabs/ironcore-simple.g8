@@ -1,0 +1,31 @@
+language: scala
+sudo: required
+scala:
+- $scala_version$
+jdk:
+- oraclejdk8
+cache:
+  directories:
+  - "$HOME/.ivy2/cache"
+  - "$HOME/.sbt/boot/"
+env:
+  global:
+#install: sudo .travis/install-dependencies.sh
+script:
+- sbt ++$TRAVIS_SCALA_VERSION lint:compile
+- sbt ++$TRAVIS_SCALA_VERSION tut unidoc
+- sbt ++$TRAVIS_SCALA_VERSION coverage test
+after_script:
+- find $HOME/.sbt -name "*.lock" | xargs rm
+- find $HOME/.ivy2 -name "ivydata-*.properties" | xargs rm
+after_success:
+- bash <(curl -s https://codecov.io/bash)
+- |
+  test "${TRAVIS_PULL_REQUEST}" = 'false' &&
+  test "${TRAVIS_JDK_VERSION}" = 'oraclejdk8' &&
+  test "${TRAVIS_BRANCH}" = 'master' &&
+  sbt 'set version := version.value + "-SNAPSHOT"' publish
+notifications:
+  slack:
+    on_success: change
+    on_failure: always

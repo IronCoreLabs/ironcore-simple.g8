@@ -1,0 +1,84 @@
+# Name of your site (displayed in the header)
+name: $name$
+
+# Short bio or description (displayed in the header)
+description: $description$
+long_description: $description$
+
+timezone: America/Denver
+
+mode: production
+
+# Following two configs forced by github -- might as well test with them
+safe: true
+lsi: false
+
+baseurl: "/$github_project$"
+
+nav:
+  -
+    url: "https://github.com/$github_user$/$github_project$"
+    text: "Github"
+    offsite: true
+  -
+    url: "/latest/api"
+    text: "Scaladocs"
+    offsite: false
+  -
+    url: "/tutorials/getting-started.html"
+    text: "Tutorials"
+    offsite: false
+  -
+    url: "/"
+    text: "Overview"
+    offsite: false
+
+collections:
+  tutorials:
+    output: true
+    # permalink: /tutorials/:path/:name
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "tutorials"
+    values:
+      layout: "tutorial"
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+
+sass:
+  sass_dir: _sass
+  #style: :expanded # You might prefer to debug using :expanded
+  style: :compressed
+  sourcemap: true
+  line_comments: false
+
+redcarpet:
+  extensions: ["tables", "autolink", "smart", "no_intra_emphasis"]
+
+kramdown:
+  input:          GFM
+  auto_ids:       true
+  auto_id_stripping: true
+  footnote_nr:    1
+  entity_output:  as_char
+  toc_levels:     1..6
+  smart_quotes:   lsquo,rsquo,ldquo,rdquo
+  enable_coderay: true
+  coderay_wrap:              div
+  coderay_line_numbers:      nil
+  coderay_tab_width:         4
+  coderay_bold_every:        10
+  coderay_css:               class
+  coderay_default_lang:      scala
+
+# Use the following plug-ins
+gems:
+  - jemoji
+  - jekyll-mentions
+  - jekyll-redirect-from
