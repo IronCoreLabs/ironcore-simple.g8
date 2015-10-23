@@ -1,6 +1,12 @@
 # scala-simple.g8
 g8 template for basic sbt scala projects for a quick stand-up of best practices.
 
+## Usage
+
+Install g8 and then use the following command, which will ask a series of questions and then generate a new project directory for you:
+
+    g8 ironcorelabs/scala-simple
+
 ## Linting
 
 For linting, it includes:
