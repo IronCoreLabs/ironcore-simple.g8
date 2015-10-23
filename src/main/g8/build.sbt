@@ -13,23 +13,23 @@ libraryDependencies ++= Seq(
   "org.scalaz" %% "scalaz-core" % "7.1.3", // for type awesomeness
   "org.scalaz" %% "scalaz-concurrent" % "7.1.3", // for type awesomeness
   "org.scalaz" %% "scalaz-iteratee" % "7.1.3", // for type awesomeness
-  "org.scalaz.stream" %% "scalaz-stream" % "0.7.2a" // for streaming stuff
+  "org.scalaz.stream" %% "scalaz-stream" % "0.7.2a", // for streaming stuff
   "oncue.knobs" %% "core" % "3.3.0", // for config happiness
-  "org.spire-math" %% "spire" % "0.10.1", // for better math
-  "org.scodec" %% "scodec-bits" % "1.0.10", // for encoding and decoding
-  "org.scodec" %% "scodec-scalaz" % "1.1.0", // encoding and decoding with scalaz
-  "org.scodec" %% "scodec-spire" % "0.2.0", //encoding and decoding with spire
-  "com.chuusai" %% "shapeless" % "2.2.5" // for more powerful types
+  "org.spire-math" %% "spire" % "$spire_version$", // for better math
+  "org.scodec" %% "scodec-bits" % "$scodec_version$", // for encoding and decoding
+  "org.scodec" %% "scodec-scalaz" % "$scodec_scalaz_version$", // encoding and decoding with scalaz
+  "org.scodec" %% "scodec-spire" % "$scodec_spire_version$", //encoding and decoding with spire
+  "com.chuusai" %% "shapeless" % "$shapeless_version$" // for more powerful types
 )
 
 // Test
 libraryDependencies ++= Seq(
-  "org.scalatest" % "scalatest_2.11" % "2.2.4" % "test",
-  "org.scalacheck" %% "scalacheck" % "1.12.5" % "test",
-  "org.typelevel" %% "scalaz-scalatest" % "0.2.2" % "test"
+  "org.scalatest" % "scalatest_2.11" % "$scalatest_version$" % "test",
+  "org.scalacheck" %% "scalacheck" % "$scalacheck_version$" % "test",
+  "org.typelevel" %% "scalaz-scalatest" % "$scalatest_scalaz_version$" % "test"
 )
 
-addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.6.3")
+addCompilerPlugin("org.spire-math" %% "kind-projector" % "$kind_projector_version$")
 
 // Code coverage checks
 coverageMinimum := 70
@@ -152,7 +152,7 @@ def removeWartRemoverFromCompileTarget = {
   // The bit below removes all switches that could be passed to scalac about WartRemover during a non-lint compile.
   scalacOptions in Compile := (scalacOptions in Compile).value filterNot { switch =>
     switch.startsWith("-P:wartremover:") ||
-    "^-Xplugin:.*/org[.]brianmckenna/.*wartremover.*[.]jar$".r.pattern.matcher(switch).find
+    "^-Xplugin:.*/org[.]brianmckenna/.*wartremover.*[.]jar\$".r.pattern.matcher(switch).find
   }
 }
 
@@ -175,6 +175,6 @@ def removeFoursquareLinterFromCompileTarget = {
   // The bit below removes all switches that could be passed to scalac about Foursquare Linter during a non-lint compile.
   scalacOptions in Compile := (scalacOptions in Compile).value filterNot { switch =>
     switch.startsWith("-P:linter:") ||
-      "^-Xplugin:.*/com[.]foursquare[.]lint/.*linter.*[.]jar$".r.pattern.matcher(switch).find
+      "^-Xplugin:.*/com[.]foursquare[.]lint/.*linter.*[.]jar\$".r.pattern.matcher(switch).find
   }
 }
