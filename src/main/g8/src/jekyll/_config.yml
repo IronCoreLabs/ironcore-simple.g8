@@ -13,11 +13,11 @@ mode: production
 safe: true
 lsi: false
 
-baseurl: "/$github_project$"
+baseurl: "/$github_projectname$"
 
 nav:
   -
-    url: "https://github.com/$github_user$/$github_project$"
+    url: "https://github.com/$github_username$/$github_projectname$"
     text: "Github"
     offsite: true
   -

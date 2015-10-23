@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/$github_user$/$github_project$.svg)](https://travis-ci.org/$github_user$/$github_project$)
-[![codecov.io](http://codecov.io/github/$github_user$/$github_project$/coverage.svg?branch=master)](http://codecov.io/github/$github_user$/$github_project$?branch=master)
+[![Build Status](https://travis-ci.org/$github_username$/$github_projectname$.svg)](https://travis-ci.org/$github_username$/$github_projectname$)
+[![codecov.io](http://codecov.io/github/$github_username$/$github_projectname$/coverage.svg?branch=master)](http://codecov.io/github/$github_username$/$github_projectname$?branch=master)
 [![MIT Open Source License](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
-[![Stories In Progress](https://badge.waffle.io/$github_user$/$github_project$.svg?label=in%20progress&title=In%20Progress)](http://waffle.io/$github_user$/$github_project$)
+[![Stories In Progress](https://badge.waffle.io/$github_username$/$github_projectname$.svg?label=in%20progress&title=In%20Progress)](http://waffle.io/$github_username$/$github_projectname$)
 
 
 # $name$ - $description$
